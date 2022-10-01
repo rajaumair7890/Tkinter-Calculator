@@ -69,8 +69,8 @@ def equal(event):
             exp = result
     except:
         # the try/except block make use of built=in method eval() to evalute our expression, It works like a miracle,
-        # you can depend your whole equal function on this but I like to code it myself, I put it here so you can utilize your
-        # keyboard to use the calculator.
+        # you can depend your whole equal function on this but I like to code it myself, I put it here so that keyboard input can also be executed as well
+        # I didn't initially designed it to work with keyboard but this method works really well.
         result = float(eval(exp))
         exp = result
         display.insert(0, result)
