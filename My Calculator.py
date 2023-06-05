@@ -37,7 +37,7 @@ def clr_scr():
     exp = ""
 
 
-# equal function is initiated when equal button is pressed, this function gets the expression from the display,
+# equal function is invoked when equal button is pressed, this function gets the expression from the display,
 # splits it into two numbers, performs the calculation depending upon the operator selected in the button_oper fuction,
 # and puts the result on screen updating our expression with result value
 def equal(event):
@@ -46,35 +46,10 @@ def equal(event):
     global exp
     exp = input_text.get()
     input_text.set("")
-    try:
-        if oper == "+":
-            numbers = exp.split("+")
-            result = float(numbers[0])+float(numbers[1])
-            input_text.set(result)
-            exp = result
-        if oper == "-":
-            numbers = exp.split("-")
-            result = float(numbers[0])-float(numbers[1])
-            input_text.set(result)
-            exp = result
-        if oper == "/":
-            numbers = exp.split("/")
-            result = float(numbers[0])/float(numbers[1])
-            input_text.set(result)
-            exp = result
-        if oper == "*":
-            numbers = exp.split("*")
-            result = float(numbers[0])*float(numbers[1])
-            input_text.set(result)
-            exp = result
-    except:
-        # the try/except block make use of built=in method eval() to evalute our expression, It works like a miracle,
-        # you can depend your whole equal function on this but I like to code it myself, I put it here so that keyboard input can also be executed as well
-        # I didn't initially designed it to work with keyboard but this method works really well.
-        result = float(eval(exp))
-        exp = result
-        display.insert(0, result)
-        input_text.set(result)
+    result = float(eval(exp))
+    exp = result
+    display.insert(0, result)
+    input_text.set(result)
 
 
 #===================================================Making the Display===================================================================
